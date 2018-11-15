@@ -1,7 +1,8 @@
 ﻿Imports AForge.Video.DirectShow
 Imports AForge.Video
 Imports System.IO
-Imports AForge
+Imports AForge.Imaging
+
 
 
 Public Class Form1
@@ -20,7 +21,6 @@ Public Class Form1
         bmp = DirectCast(eventargs.Frame.Clone(), Bitmap)
         PictureBox1.Image = DirectCast(eventargs.Frame.Clone(), Bitmap)
 
-
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,9 +36,9 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        SaveFileDialog1.DefaultExt = ".bmp"
+        SaveFileDialog1.DefaultExt = ".jpg"
         If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
-            PictureBox2.Image.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Bmp)
+            PictureBox2.Image.Save(SaveFileDialog1.FileName, Imaging.ImageFormat.Jpeg)
 
         End If
     End Sub
